@@ -8,6 +8,9 @@
 
 import UIKit
 import ESTabBarController
+import Firebase
+import FirebaseAuth
+
 
 class ViewController: UIViewController {
     
@@ -16,6 +19,7 @@ class ViewController: UIViewController {
         
         setupTab()
     }
+    
     
     func setupTab() {
         
@@ -56,4 +60,19 @@ class ViewController: UIViewController {
             self.present(imageViewController!, animated: true, completion: nil)
         }, at: 1)
     }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //ログインしていない処理
+        if Auth.auth().currentUser == nil{
+            // ログインしていないときの処理
+            let loginViwController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+            self.present(loginViwController!, animated: true, completion: nil)
+        }
+    }
+    
+    
 }

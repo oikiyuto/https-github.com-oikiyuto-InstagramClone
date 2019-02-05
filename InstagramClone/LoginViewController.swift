@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    @IBOutlet weak var mailAddressTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var displayNameTextfield: UITextField!
+    
+    @IBAction func handleLoginButton(_ sender: Any) {
+    }
+    
+    @IBAction func handleCreateAccountButton(_ sender: Any) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

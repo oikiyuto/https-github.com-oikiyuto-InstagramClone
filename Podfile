@@ -8,5 +8,11 @@ target 'InstagramClone' do
   # Pods for InstagramClone
 
  pod "ESTabBarController","0.2"
+ pod 'Firebase'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+
+
 
 end

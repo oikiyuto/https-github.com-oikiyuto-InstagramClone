@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17807ABD0A463684FB185C11 /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB4E4AE4CFB2001695DDF3 /* Pods_InstagramClone.framework */; };
+		F06C422222099AF400963107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F06C422122099AF400963107 /* GoogleService-Info.plist */; };
 		F0B7EB0A220852260044C0A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EB09220852260044C0A5 /* AppDelegate.swift */; };
 		F0B7EB0C220852260044C0A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B7EB0B220852260044C0A5 /* ViewController.swift */; };
 		F0B7EB0F220852260044C0A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0B7EB0D220852260044C0A5 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		45B7007CC9F980F6A3501822 /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
 		6E840B5A4F4DFC69E9AF5C1F /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		7ECB4E4AE4CFB2001695DDF3 /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F06C422122099AF400963107 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0B7EB06220852260044C0A5 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0B7EB09220852260044C0A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0B7EB0B220852260044C0A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				F0B7EB23220856C70044C0A5 /* SettingViewController.swift */,
 				F0B7EB122208522A0044C0A5 /* LaunchScreen.storyboard */,
 				F0B7EB152208522A0044C0A5 /* Info.plist */,
+				F06C422122099AF400963107 /* GoogleService-Info.plist */,
 			);
 			path = InstagramClone;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0B7EB142208522A0044C0A5 /* LaunchScreen.storyboard in Resources */,
+				F06C422222099AF400963107 /* GoogleService-Info.plist in Resources */,
 				F0B7EB112208522A0044C0A5 /* Assets.xcassets in Resources */,
 				F0B7EB0F220852260044C0A5 /* Main.storyboard in Resources */,
 			);
@@ -204,12 +208,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ESTabBarController/ESTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
