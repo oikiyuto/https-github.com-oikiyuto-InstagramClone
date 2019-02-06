@@ -12,6 +12,7 @@ target 'InstagramClone' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+pod "SVProgressHUD","2.2.5"
 
 
 
