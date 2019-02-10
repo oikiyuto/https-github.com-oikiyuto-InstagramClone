@@ -84,6 +84,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100
     }
     
+   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("DEBUG_PRINT: viewWillAppear")

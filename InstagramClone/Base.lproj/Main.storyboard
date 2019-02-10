@@ -181,7 +181,7 @@
                                 </constraints>
                                 <state key="normal" title="投稿" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="handlePostButton:" destination="2m3-6E-OUA" eventType="touchUpInside" id="0y2-ca-9qz"/>
+                                    <action selector="handlePostButton:" destination="2m3-6E-OUA" eventType="touchUpInside" id="aGy-Gc-c4g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMk-R4-VjZ">
@@ -191,7 +191,7 @@
                                 </constraints>
                                 <state key="normal" title="キャンセル" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="handleCancelButton:" destination="2m3-6E-OUA" eventType="touchUpInside" id="eo6-WU-3Yg"/>
+                                    <action selector="handleCancelButton:" destination="2m3-6E-OUA" eventType="touchUpInside" id="29G-kC-2ct"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7i1-bb-32S">
@@ -223,8 +223,8 @@
                         <viewLayoutGuide key="safeArea" id="4HE-mo-5Fo"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="7i1-bb-32S" id="rfP-aI-sTr"/>
-                        <outlet property="textField" destination="iqw-n5-d0i" id="QNg-T0-NrF"/>
+                        <outlet property="imageView" destination="7i1-bb-32S" id="bat-Dx-MEW"/>
+                        <outlet property="textField" destination="iqw-n5-d0i" id="fQ7-VU-SgV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WpN-oJ-28T" userLabel="First Responder" sceneMemberID="firstResponder"/>
