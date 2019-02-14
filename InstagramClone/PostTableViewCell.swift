@@ -7,15 +7,36 @@
 //
 
 import UIKit
+import Firebase
 
-class PostTableViewCell: UITableViewCell {
-    
+class PostTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource{
+   
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
+    var commentCount:Int = 0
+    var commentSetHere:[String:String] = [:]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return commentCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! commentTableViewCell
+        
+        for (key, value) in commentSetHere{
+            cell.commentId.text! = key
+            cell.comment.text! = value
+        }
+  
+        return cell
+    }
     
     
     override func awakeFromNib() {
@@ -25,9 +46,8 @@ class PostTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
     func setPostData(_ postData: PostData) {
         self.postImageView.image = postData.image
         
@@ -47,5 +67,11 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        
+        if postData.comment != nil{
+          commentCount = postData.comment!.count
+        }
+        commentSetHere = postData.commentSet
+        
     }
 }

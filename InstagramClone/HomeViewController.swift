@@ -10,6 +10,12 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var postArray:[PostData] = []
+    var observing = false
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
@@ -21,7 +27,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         
+        cell.commentButton.addTarget(self, action:#selector(handleComment(_:forEvent:)), for: .touchUpInside)
+        
         return cell
+    }
+    
+    @objc func handleComment(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT:handleComment")
+        
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        let postData = postArray[indexPath!.row]
+        if let uid = Auth.auth().currentUser?.uid{
+            if postData.comment != nil{
+                postData.commentSet.updateValue(postData.comment!, forKey: uid)
+            }
+        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+        let commentSets = ["commentSet": postData.commentSet]
+        postRef.updateChildValues(commentSets)
+        }
     }
     
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
@@ -60,12 +86,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-
-    @IBOutlet weak var tableView: UITableView!
-    
-    var postArray:[PostData] = []
-    var observing = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +104,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100
     }
     
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("DEBUG_PRINT: viewWillAppear")

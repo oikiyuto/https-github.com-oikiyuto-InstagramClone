@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		17807ABD0A463684FB185C11 /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECB4E4AE4CFB2001695DDF3 /* Pods_InstagramClone.framework */; };
+		F006B783221423C10004173B /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006B781221423C10004173B /* commentTableViewCell.swift */; };
+		F006B784221423C10004173B /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F006B782221423C10004173B /* commentTableViewCell.xib */; };
 		F007618A220E668700E95AF1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0076188220E668700E95AF1 /* PostTableViewCell.swift */; };
 		F007618B220E668700E95AF1 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0076189220E668700E95AF1 /* PostTableViewCell.xib */; };
 		F011BAE1220DA10B0033224E /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011BAE0220DA10B0033224E /* PostData.swift */; };
@@ -29,6 +31,8 @@
 		45B7007CC9F980F6A3501822 /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
 		6E840B5A4F4DFC69E9AF5C1F /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		7ECB4E4AE4CFB2001695DDF3 /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F006B781221423C10004173B /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
+		F006B782221423C10004173B /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
 		F0076188220E668700E95AF1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		F0076189220E668700E95AF1 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		F011BAE0220DA10B0033224E /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = /Users/yutos/Desktop/InstagramClone/InstagramClone/PostData.swift; sourceTree = "<absolute>"; };
@@ -113,6 +117,8 @@
 				F011BAE0220DA10B0033224E /* PostData.swift */,
 				F0076188220E668700E95AF1 /* PostTableViewCell.swift */,
 				F0076189220E668700E95AF1 /* PostTableViewCell.xib */,
+				F006B781221423C10004173B /* commentTableViewCell.swift */,
+				F006B782221423C10004173B /* commentTableViewCell.xib */,
 				F06C422122099AF400963107 /* GoogleService-Info.plist */,
 			);
 			path = InstagramClone;
@@ -181,6 +187,7 @@
 				F0B7EB142208522A0044C0A5 /* LaunchScreen.storyboard in Resources */,
 				F007618B220E668700E95AF1 /* PostTableViewCell.xib in Resources */,
 				F06C422222099AF400963107 /* GoogleService-Info.plist in Resources */,
+				F006B784221423C10004173B /* commentTableViewCell.xib in Resources */,
 				F0B7EB112208522A0044C0A5 /* Assets.xcassets in Resources */,
 				F0B7EB0F220852260044C0A5 /* Main.storyboard in Resources */,
 			);
@@ -255,6 +262,7 @@
 				F0B7EB22220856BB0044C0A5 /* PostViewController.swift in Sources */,
 				F011BAE1220DA10B0033224E /* PostData.swift in Sources */,
 				F0B7EB1C220856850044C0A5 /* LoginViewController.swift in Sources */,
+				F006B783221423C10004173B /* commentTableViewCell.swift in Sources */,
 				F0B7EB0C220852260044C0A5 /* ViewController.swift in Sources */,
 				F0B7EB0A220852260044C0A5 /* AppDelegate.swift in Sources */,
 				F0B7EB20220856A70044C0A5 /* ImageSelectViewController.swift in Sources */,
