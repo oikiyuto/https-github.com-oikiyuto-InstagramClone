@@ -21,19 +21,15 @@ class PostTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     
     var commentCount:Int = 0
-    var commentSetHere:[String:String] = [:]
+    var commentSetHere:[[String:String]] = [[:]]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return commentCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! commentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! commentTableViewCell
         
-        for (key, value) in commentSetHere{
-            cell.commentId.text! = key
-            cell.comment.text! = value
-        }
   
         return cell
     }
@@ -42,10 +38,16 @@ class PostTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSo
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        print("debug:awakefromnib")
+        let nib = UINib(nibName: "commentTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "PostCell")
     }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+ 
     }
     
     func setPostData(_ postData: PostData) {

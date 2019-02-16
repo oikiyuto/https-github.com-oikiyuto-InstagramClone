@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class commentTableViewCell: UITableViewCell {
 
@@ -24,5 +25,12 @@ class commentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+ 
+    func setPostData(_ postData: PostData) {
+        
+    }
+        
+    
+    
     
 }

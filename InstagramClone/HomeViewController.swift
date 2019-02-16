@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var postArray:[PostData] = []
     var observing = false
+    var test:String = "test2"
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
@@ -41,13 +42,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let postData = postArray[indexPath!.row]
         if let uid = Auth.auth().currentUser?.uid{
-            if postData.comment != nil{
-                postData.commentSet.updateValue(postData.comment!, forKey: uid)
-            }
-        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+            //postData.commentSet.updateValue(test, forKey: uid)
+            postData.commentSet.append([uid:"testcom"])
+            let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
         let commentSets = ["commentSet": postData.commentSet]
         postRef.updateChildValues(commentSets)
         }
+        self.tableView.reloadData()
+        
     }
     
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
@@ -172,5 +174,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+    
     
 }
