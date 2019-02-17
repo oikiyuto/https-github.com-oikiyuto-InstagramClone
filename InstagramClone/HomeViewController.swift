@@ -9,13 +9,13 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     var postArray:[PostData] = []
     var observing = false
-    var test:String = "test2"
+    var commentMessage:String?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
@@ -30,6 +30,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.commentButton.addTarget(self, action:#selector(handleComment(_:forEvent:)), for: .touchUpInside)
         
+        commentMessage = cell.commentTextField.text
+        
         return cell
     }
     
@@ -41,12 +43,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let indexPath = tableView.indexPathForRow(at: point)
         
         let postData = postArray[indexPath!.row]
-        if let uid = Auth.auth().currentUser?.uid{
-            //postData.commentSet.updateValue(test, forKey: uid)
-            postData.commentSet.append([uid:"testcom"])
+        if let displayname = Auth.auth().currentUser?.displayName{
+            if commentMessage != nil{
+            postData.commentSet.append([displayname:commentMessage!])
             let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-        let commentSets = ["commentSet": postData.commentSet]
-        postRef.updateChildValues(commentSets)
+            let commentSets = ["commentSet": postData.commentSet]
+            postRef.updateChildValues(commentSets)
+            }
         }
         self.tableView.reloadData()
         
@@ -55,7 +58,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
         
-        // タップされたセルのインデックスを求める
+                // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)

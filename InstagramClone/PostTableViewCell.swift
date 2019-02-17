@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class PostTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource{
+class PostTableViewCell: UITableViewCell{
    
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
@@ -18,31 +18,12 @@ class PostTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var commentButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
-    
-    var commentCount:Int = 0
-    var commentSetHere:[[String:String]] = [[:]]
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentCount
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! commentTableViewCell
-        
-  
-        return cell
-    }
-    
+    @IBOutlet weak var commentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        print("debug:awakefromnib")
-        let nib = UINib(nibName: "commentTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "PostCell")
     }
-    
     
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -70,10 +51,14 @@ class PostTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSo
             self.likeButton.setImage(buttonImage, for: .normal)
         }
         
-        if postData.comment != nil{
-          commentCount = postData.comment!.count
-        }
-        commentSetHere = postData.commentSet
         
+        self.commentLabel.numberOfLines = postData.commentSet.count
+        print(postData.commentSet)
+        for comment in postData.commentSet{
+            if comment.keys.first != nil{
+            self.commentLabel.text = "\(comment.keys.first!):\(comment.values.first!)\n"
+            print(comment.keys.first!)
+            }
+        }
     }
 }
