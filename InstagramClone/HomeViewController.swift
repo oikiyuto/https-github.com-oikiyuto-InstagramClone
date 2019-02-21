@@ -30,7 +30,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.commentButton.addTarget(self, action:#selector(handleComment(_:forEvent:)), for: .touchUpInside)
         
-        commentMessage = cell.commentTextField.text
         
         return cell
     }
@@ -41,6 +40,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath!) as! PostTableViewCell
+        
+        cell.commentTextField.delegate = self
+        cell.commentTextField.tag = indexPath!.row
+        
+        print(indexPath!.row)
+        
+        commentMessage = cell.commentTextField.text!
+        print(commentMessage)
         
         let postData = postArray[indexPath!.row]
         if let displayname = Auth.auth().currentUser?.displayName{

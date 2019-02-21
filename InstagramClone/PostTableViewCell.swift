@@ -53,7 +53,6 @@ class PostTableViewCell: UITableViewCell{
         
         
         self.commentLabel.numberOfLines = postData.commentSet.count
-        print(postData.commentSet)
         for comment in postData.commentSet{
             if comment.keys.first != nil{
             self.commentLabel.text = "\(comment.keys.first!):\(comment.values.first!)\n"
