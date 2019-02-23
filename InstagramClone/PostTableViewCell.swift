@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class PostTableViewCell: UITableViewCell{
-   
+    
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
@@ -23,12 +23,13 @@ class PostTableViewCell: UITableViewCell{
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
     
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
- 
+        
     }
     
     func setPostData(_ postData: PostData) {
@@ -52,12 +53,14 @@ class PostTableViewCell: UITableViewCell{
         }
         
         
-        self.commentLabel.numberOfLines = postData.commentSet.count
+        var commentDictrionary = ""
+        //self.commentLabel.numberOfLines = postData.commentSet.count
         for comment in postData.commentSet{
             if comment.keys.first != nil{
-            self.commentLabel.text = "\(comment.keys.first!):\(comment.values.first!)\n"
-            print(comment.keys.first!)
+                commentDictrionary += "\(comment.keys.first!):\(comment.values.first!)\n"
             }
+            
         }
+        commentLabel.text = commentDictrionary
     }
 }

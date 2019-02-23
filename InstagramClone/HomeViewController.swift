@@ -47,18 +47,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.commentTextField.delegate = self
         cell.commentTextField.tag = indexPath!.row
         
-        print(indexPath!.row)
-        
         commentMessage = cell.commentTextField.text!
-        print(commentMessage)
+        print("コメント送信時のcommentMessageの中身:\(commentMessage!)")
         
         let postData = postArray[indexPath!.row]
         if let displayname = Auth.auth().currentUser?.displayName{
             if commentMessage != nil{
-            postData.commentSet.append([displayname:commentMessage!])
-            let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-            let commentSets = ["commentSet": postData.commentSet]
-            postRef.updateChildValues(commentSets)
+                print("commentMessageはnilじゃない:\(commentMessage!)")
+                postData.commentSet.append([displayname:commentMessage!])
+                let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+                let commentSets = ["commentSet": postData.commentSet]
+                postRef.updateChildValues(commentSets)
+                print("commentSet:\(commentSets)")
             }
         }
         self.tableView.reloadData()
@@ -68,7 +68,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
         
-                // タップされたセルのインデックスを求める
+        // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
