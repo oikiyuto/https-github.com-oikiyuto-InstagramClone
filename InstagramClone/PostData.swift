@@ -46,9 +46,10 @@ class PostData: NSObject {
             }
         }
         
+        
         if let commentSet = valueDictionary["commentSet"] as? [[String:String]]{
             self.commentSet = commentSet
-            //もしかしてappendで追加していかないといけない？
+            
         }
     }
 }

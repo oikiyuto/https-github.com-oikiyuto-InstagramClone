@@ -47,14 +47,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.commentTextField.delegate = self
         cell.commentTextField.tag = indexPath!.row
         
+        
+        
         commentMessage = cell.commentTextField.text!
         print("コメント送信時のcommentMessageの中身:\(commentMessage!)")
         
         let postData = postArray[indexPath!.row]
         if let displayname = Auth.auth().currentUser?.displayName{
             if commentMessage != nil{
-                print("commentMessageはnilじゃない:\(commentMessage!)")
+                print("append直前のcommentset\(postData.commentSet)")
                 postData.commentSet.append([displayname:commentMessage!])
+                print("append直後のcommentset\(postData.commentSet)")
                 let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
                 let commentSets = ["commentSet": postData.commentSet]
                 postRef.updateChildValues(commentSets)

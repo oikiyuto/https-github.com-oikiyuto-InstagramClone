@@ -62,5 +62,6 @@ class PostTableViewCell: UITableViewCell{
             
         }
         commentLabel.text = commentDictrionary
+        print("commentLabel:\(commentLabel.text!)")
     }
 }
