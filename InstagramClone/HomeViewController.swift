@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    
     @objc func handleComment(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT:handleComment")
         
@@ -41,7 +42,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath!) as! PostTableViewCell
+        let cell = tableView.cellForRow(at: indexPath!) as! PostTableViewCell
         
         cell.commentTextField.delegate = self
         cell.commentTextField.tag = indexPath!.row
