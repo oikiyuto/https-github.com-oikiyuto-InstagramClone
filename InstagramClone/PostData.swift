@@ -18,7 +18,7 @@ class PostData: NSObject {
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
-    var commentSet:[Any] = []
+    var commentSet:[[String:String]] = []
     
     init(snapshot: DataSnapshot, myId: String) {
         self.id = snapshot.key
@@ -47,7 +47,7 @@ class PostData: NSObject {
         }
         
         
-        if let commentSet = valueDictionary["commentSet"] as? [Any]{
+        if let commentSet = valueDictionary["commentSet"] as? [[String:String]]{
             self.commentSet = commentSet
         }
         print("postdataでのcommentset:\(self.commentSet)")
