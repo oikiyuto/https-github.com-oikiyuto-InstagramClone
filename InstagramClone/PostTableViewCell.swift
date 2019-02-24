@@ -53,9 +53,13 @@ class PostTableViewCell: UITableViewCell{
         }
         
         
-        var commentDictrionary = ""
+        var commentSetString = ""
         //self.commentLabel.numberOfLines = postData.commentSet.count
-       commentLabel.text = commentDictrionary
+        for comment in postData.commentSet{
+            commentSetString += "\(comment) \n"
+        }
+            
+        commentLabel.text = commentSetString
         print("commentLabel:\(commentLabel.text!)")
     }
 }
