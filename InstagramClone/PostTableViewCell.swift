@@ -56,7 +56,7 @@ class PostTableViewCell: UITableViewCell{
         var commentSetString = ""
         //self.commentLabel.numberOfLines = postData.commentSet.count
         for comment in postData.commentSet{
-                commentSetString += "\(comment.keys):\(comment.values) \n"
+                commentSetString += "\(comment.keys.first!):\(comment.values.first!) \n"
                 }
         
 
